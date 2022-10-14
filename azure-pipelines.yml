@@ -60,9 +60,8 @@ stages:
                 inputs:
                   targetType: 'inline'
                   script: |
-                    echo "Starting deployment script run"
-                    cd '$(Pipeline.Workspace)/drop/target/'
-                    sudo java -jar './spring-petclinic-2.7.3.jar'
+                    echo "Starting deployment script run"                    
+                    sudo java -jar '$(Pipeline.Workspace)/drop/**/target/*.jar'
             routeTraffic:
               steps:
               - script: echo routing traffic
