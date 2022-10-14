@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 stages:
-  - stage: artifact-building
+  - stage: artifact_building
     jobs:
     - job: Build
       displayName: Build Maven Project
@@ -23,7 +23,7 @@ stages:
         artifact: drop
   
   - stage: deployment
-    dependsOn: artifact-building
+    dependsOn: artifact_building
     jobs:
       - deployment: VMDeploy
         displayName: web
