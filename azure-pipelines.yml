@@ -39,7 +39,7 @@ stages:
                 - script: echo my first deployment
 
   - stage: deployment_second
-    dependsOn: artifact_building
+    dependsOn: deployment_first
     jobs:
       - deployment: VMDeploy
         displayName: web
