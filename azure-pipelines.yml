@@ -61,7 +61,8 @@ stages:
                   targetType: 'inline'
                   script: |
                     echo "Starting deployment script run"
-                    sudo java -jar '$(Pipeline.Workspace)/drop/target/*.jar'
+                    cd '$(Pipeline.Workspace)/drop/**/target/'
+                    sudo java -jar './*.jar'
             routeTraffic:
               steps:
               - script: echo routing traffic
