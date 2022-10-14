@@ -15,7 +15,7 @@ jobs:
         preDeploy:
           steps:
           - download: current
-            artifact: drop
+            #artifact: drop
           - script: echo initialize, cleanup, backup, install certs
         deploy:
           steps:
