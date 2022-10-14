@@ -39,7 +39,7 @@ stages:
                 - script: echo my first deployment
 
   - stage: deployment_second
-    dependsOn: deployment_first
+    dependsOn: artifact_building
     jobs:
       - deployment: VMDeploy
         displayName: web
@@ -59,7 +59,7 @@ stages:
               - task: Bash@3
                 inputs:
                   targetType: 'inline'
-                  workingDirectory: $(Pipeline.Workspace)
+                  workingDirectory: $(Pipeline.Workspace)/drop/**/target/
                   script: |
                     echo "Starting deployment script run"                    
                     sudo java -jar '$(Pipeline.Workspace)/drop/**/target/*.jar'
